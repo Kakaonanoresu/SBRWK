@@ -50,16 +50,86 @@
         }
 
         .window-btn {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             background: #c0c0c0;
-            border: 1px solid white;
-            border-right-color: #000;
-            border-bottom-color: #000;
-            font-size: 10px;
+            border: 2px outset #fff;
+            font-size: 12px;
             text-align: center;
-            line-height: 14px;
+            line-height: 16px;
             cursor: pointer;
+            font-weight: bold;
+        }
+
+        .window-btn:active {
+            border-style: inset;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #c0c0c0;
+            border: 3px ridge #fff;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+            min-width: 300px;
+        }
+
+        .popup.show {
+            display: block;
+        }
+
+        .popup-header {
+            background: linear-gradient(180deg, #0000ff 0%, #000080 100%);
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popup-content {
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            background: white;
+        }
+
+        .popup-close {
+            width: 20px;
+            height: 20px;
+            background: #c0c0c0;
+            border: 2px outset #fff;
+            font-size: 12px;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .popup-close:active {
+            border-style: inset;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
         }
 
         .banner {
@@ -191,17 +261,37 @@
     </style>
 </head>
 <body>
+    <script>
+        function showPopup() {
+            document.getElementById('popup').classList.add('show');
+            document.getElementById('overlay').classList.add('show');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+            document.getElementById('overlay').classList.remove('show');
+        }
+    </script>
     <div class="container">
         <header>
             <div class="title-bar">
                 <span class="title-text">SBRWK</span>
                 <div class="window-buttons">
-                    <div class="window-btn">_</div>
-                    <div class="window-btn">□</div>
-                    <div class="window-btn">×</div>
+                    <div class="window-btn" onclick="showPopup()">×</div>
                 </div>
             </div>
         </header>
+
+        <div class="overlay" id="overlay" onclick="closePopup()"></div>
+        <div class="popup" id="popup">
+            <div class="popup-header">
+                <span>メッセージ</span>
+                <div class="popup-close" onclick="closePopup()">×</div>
+            </div>
+            <div class="popup-content">
+                押したらなんかあると思うよね、わかる
+            </div>
+        </div>
 
         <div class="banner">
             <h1>★☆ SBRWK ☆★</h1>
@@ -209,11 +299,11 @@
         </div>
 
         <div class="marquee-container">
-            <marquee>★★★ ようこそ SBRWKへ！ ★★★ 最終更新: 知るわけない ★★★</marquee>
+            <marquee>★★★ ようこそ SBRWKへ！ ★★★ このサイトは永遠に工事中です！ ★★★ 最終更新: 1999/12/31 ★★★</marquee>
         </div>
 
         <div style="background: #000; color: #00ff00; padding: 10px; margin: 10px; text-align: center; border: 3px inset #808080; font-family: 'Courier New', monospace; font-weight: bold;">
-                 あなたは <span style="background: #00ff00; color: #000; padding: 2px 8px;">本当に人類初めての</span> 訪問者です！
+            🔢 あなたは <span style="background: #00ff00; color: #000; padding: 2px 8px;">999999</span> 人目の訪問者です！
         </div>
 
         <div class="content">
