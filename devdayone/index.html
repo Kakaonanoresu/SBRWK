@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBRWK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'MS UI Gothic', 'Arial', sans-serif;
+            background: #008080 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAE0lEQVQIW2P4////fwYGBgYGBgYAHfcF/VLnYG8AAAAASUVORK5CYII=') repeat;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            border: 5px ridge #808080;
+            box-shadow: 5px 5px 0px #000;
+        }
+
+        header {
+            background: linear-gradient(180deg, #0000ff 0%, #000080 100%);
+            padding: 5px;
+            border-bottom: 2px solid white;
+        }
+
+        .title-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3px 5px;
+        }
+
+        .title-text {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .window-buttons {
+            display: flex;
+            gap: 3px;
+        }
+
+        .window-btn {
+            width: 16px;
+            height: 16px;
+            background: #c0c0c0;
+            border: 1px solid white;
+            border-right-color: #000;
+            border-bottom-color: #000;
+            font-size: 10px;
+            text-align: center;
+            line-height: 14px;
+            cursor: pointer;
+        }
+
+        .banner {
+            background: linear-gradient(45deg, #ff0000 0%, #ffff00 25%, #00ff00 50%, #0000ff 75%, #ff00ff 100%);
+            border: 5px ridge #ffd700;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            animation: rainbow 3s infinite, blink 1.5s infinite;
+            position: relative;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.85; }
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            color: #ffffff;
+            text-shadow: 3px 3px #000000, -1px -1px #ff0000, 1px 1px #00ff00;
+            font-family: 'Comic Sans MS', cursive;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .banner p {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 2px 2px #000;
+        }
+
+        .content {
+            padding: 15px;
+        }
+
+        .marquee-container {
+            background: #000;
+            color: #00ff00;
+            padding: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+            border: 3px inset #808080;
+        }
+
+        marquee {
+            font-weight: bold;
+        }
+
+        .blog-post {
+            border: 3px groove #808080;
+            background: linear-gradient(135deg, #ffffcc 0%, #ffffff 100%);
+            margin: 15px 0;
+            padding: 15px;
+            box-shadow: 3px 3px 0px #666;
+        }
+
+        .post-title {
+            color: #ff0000;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            font-family: 'Comic Sans MS', cursive;
+            text-shadow: 1px 1px #ffff00;
+        }
+
+        .post-content {
+            line-height: 1.6;
+            color: #000;
+        }
+
+        footer {
+            background: #c0c0c0;
+            border-top: 2px solid white;
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .counter {
+            background: #000;
+            color: #00ff00;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            border: 3px inset #808080;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 5px;
+                border: 3px ridge #808080;
+            }
+            
+            .banner h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title-bar">
+                <span class="title-text">🌟 SBRWK - Netscape Navigator</span>
+                <div class="window-buttons">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="banner">
+            <h1>★☆ SBRWK ☆★</h1>
+            <p>〜 ようこそSBRWKへ！　〜</p>
+        </div>
+
+        <div class="marquee-container">
+            <marquee>★★★ ようこそ SBRWKへ！このサイトは工事中です！★★★ 最終更新: 1999/12/31 ★★★</marquee>
+        </div>
+
+        <div class="counter">
+            🔢 あなたは 999999 人目の訪問者です！
+        </div>
+
+        <div class="content">
+            <h2 style="color: #ff0000; text-align: center; font-family: 'Comic Sans MS', cursive; text-shadow: 2px 2px #ffff00; margin-bottom: 20px;">SBRWKとは、ぼくのフレンドのスバルが言ったことを書くウィキ（？）サイトです（以下ウィキ）</h2>
+
+            <div id="blogPosts">
+                <div class="blog-post">
+                    <div class="post-title">じばこってさいしゅうしんかのくせによわいよね </div>
+                    <div class="post-content">
+                        <p>you:ジバコにはしなかったんだね？  me :はい。  なぜなら、レアコイルの方が速いからです。ご存知ですか？
+ジバコイルの素早さ種族値は60、それに対してレアコイルの素早さ種族値は70なんです。この10の差がとても大きくて、レアコイルの場合は素早さに補正をかけ、努力値を252振ることで実数値が134になります。
+さらに「こだわりスカーフ」というアイテムを持たせることにより、素早さが1.5倍となって201にまで達するんです。</p>
+                        <p>これは、サンダースやクロバットといったメジャーなポケモン――いわゆる130族の最高数値を、わずかに1だけ上回る数値なんですね。
+ポケモンというゲームは、素早さが1違うだけで先手後手が決まってしまうゲームです。だからこそ、その1の差でこうした強力なポケモンに対して先手攻撃を仕掛けられるんです。まあ、倒せるかどうかは別として。</p>
+                        <p>確かにジバコイルは、レアコイルよりも耐久力・火力ともに上回っています。しかし、素早さではレアコイルの方が勝っている以上、明確に差別化ができていますし、下手をすればレアコイルの方が強いんじゃないかと思うほどです。
+だから、あえてレアコイルで止めているんです。はい。 何か質問でも</p>
+                    </div>
+                </div>
+
+                <!-- ここから新しい記事をコピペで追加できます -->
+                <!-- 
+                <div class="blog-post">
+                    <div class="post-title">タイトルをここに入れる</div>
+                    <div class="post-content">
+                        <p>本文をここに入れる</p>
+                    </div>
+                </div>
+                -->
+
+            </div>
+        </div>
+
+        <footer>
+            <p>🚧 このサイトは永遠に工事中です 🚧</p>
+            <p>© 1999 SBRWK All Rights Reserved</p>
+            <p style="margin-top: 10px;">
+                <span style="display: inline-block; background: #0000ff; color: white; padding: 5px 10px; border: 2px outset #808080; margin: 5px;">Best viewed in Internet Explorer 4.0</span>
+                <span style="display: inline-block; background: #ff00ff; color: white; padding: 5px 10px; border: 2px outset #808080; margin: 5px;">HTML 3.2 準拠</span>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
